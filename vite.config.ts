@@ -7,13 +7,17 @@ export default defineConfig(({ mode }) => {
       return {
         base: '/vaibhavportfolio/', // Set base path for GitHub Pages
         plugins: [react()],
+        build: {
+          outDir: 'dist',
+          assetsDir: 'assets',
+        },
         define: {
           'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
           'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
         },
         resolve: {
           alias: {
-            '@': path.resolve(__dirname, '.'),
+            '@': path.resolve(__dirname, './src'),
           }
         }
     };
